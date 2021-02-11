@@ -1,3 +1,5 @@
+import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+
 const time = document.querySelector('.time');
 const today = new Date();
 const oneDay = 1000 * 60 * 60 * 24;
@@ -7,7 +9,8 @@ const finalResult = result.toFixed(0);
 const arrivalMonths = Math.floor(finalResult / 30);
 const arrivalTotalDays = finalResult - arrivalMonths * 30;
 const arrivalExactWeeks = arrivalTotalDays / 7;
-const arrivalWeeks = arrivalExactWeeks.toFixed(0);
+const arrivalWeeks = Math.floor(arrivalExactWeeks);
+console.log(arrivalWeeks);
 const arrivalDays =
   arrivalTotalDays - arrivalWeeks * 7 < 0
     ? 0
@@ -19,5 +22,4 @@ console.log(
 
 time.innerHTML = `${arrivalMonths} meses, ${arrivalWeeks} semanas, ${arrivalDays} dias.`;
 
-import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 confetti();
